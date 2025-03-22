@@ -1,15 +1,12 @@
-from git import Repo
+from passlib.context import CryptContext
 
-# Путь к локальному репозиторию
-repo_path = '/путь/к/вашему/репозиторию'
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-# Открываем репозиторий
-repo = Repo(repo_path)
+def verify_password(plain_password, hashed_password):
+    return pwd_context.verify(plain_password, hashed_password)
 
-# Проверяем, что репозиторий не находится в состоянии ошибки
-if not repo.bare:
-    # Получаем изменения из удаленного репозитория
-    repo.remotes.origin.pull()
-    print('Репозиторий успешно обновлен.')
-else:
-    print('Не удалось открыть репозиторий.')
+def get_password_hash(password):
+    return pwd_context.hash(password)
+
+x = get_password_hash("kaip")
+print(x)
