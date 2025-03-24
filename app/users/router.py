@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from sqlalchemy import select
-from app.database import async_session_maker
+from app.users.auth import get_password_hash
+from app.users.dao import UserDAO
 from app.users.schemas import SUserAuth
 
 
