@@ -1,12 +1,4 @@
-from passlib.context import CryptContext
+from secrets import token_bytes
+from base64 import b64encode
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
-def verify_password(plain_password, hashed_password):
-    return pwd_context.verify(plain_password, hashed_password)
-
-def get_password_hash(password):
-    return pwd_context.hash(password)
-
-x = get_password_hash("kaip")
-print(x)
+print(b64encode(token_bytes(32)).decode())

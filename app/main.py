@@ -6,10 +6,12 @@ from datetime import date
 from pydantic import BaseModel
 
 from app.bookings.router import router as booking_router
-from app.users.router import router as users_router
+from app.users.router import router_auth, router_users
 
 app = FastAPI()
 
-app.include_router(users_router)
+app.include_router(router_auth)
+app.include_router(router_users)
 app.include_router(booking_router)
+
 
