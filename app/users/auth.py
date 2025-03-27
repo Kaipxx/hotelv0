@@ -5,6 +5,7 @@ from passlib.context import CryptContext
 from pydantic import EmailStr
 
 from app.config import settings
+from app.exceptions import IncorrectEmailOrPasswordException
 
 from app.users.dao import UserDAO
 
