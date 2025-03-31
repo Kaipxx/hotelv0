@@ -79,4 +79,6 @@ async def delete_booking(room
     #user: Users = Depends(get_current_user),
 ):
     del_booking = await BookingDAO.delete(
-        room_id = int(room))
+        id = int(room))
+
+

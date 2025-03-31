@@ -124,3 +124,6 @@ class BookingDAO(BaseDAO):
                 "date_to": date_to,
             }
             #logger.error(msg, extra=extra, exc_info=True)
+
+
+

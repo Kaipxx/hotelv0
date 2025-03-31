@@ -14,6 +14,7 @@ if TYPE_CHECKING:
 
 # Модель написана в соответствии с современным стилем Алхимии (версии 2.x)
 class Bookings(Base):
+    location = None
     __tablename__ = "bookings"
 
     id: Mapped[int] = mapped_column(primary_key=True)
